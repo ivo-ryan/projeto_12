@@ -1,8 +1,7 @@
 import * as S from './style';
-//import banner  from '../../assets/John-Wick.jpg';
 import { FaPlay } from 'react-icons/fa';
 import { UseApi } from '../UseApi/useApi';
-//import $ from 'jquery';
+import $ from 'jquery';
 import {  useEffect, useState } from 'react';
 import { MoviesTypes } from '../../types/MoviesTypes';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,6 @@ export const Detiong = ()=> {
     const [ movie , setMovie ] = useState<MoviesTypes[]>([])
 
     const { movies } = UseApi();
-
    
     useEffect(() => {
         const initSlider = () => {
@@ -24,16 +22,24 @@ export const Detiong = ()=> {
             }
             
             const itemFilter = movies.filter(( _, index) => index === imgCurrent);
-            setMovie(itemFilter)
+            setMovie(itemFilter);
+            
          
         }
 
         setTimeout(() => {
-            setImgCurrent(imgCurrent + 1)
+           
+            $('.span-container span').css('background', '#B3B3B3').css('transform', 'scale(1)');
+            setImgCurrent(imgCurrent + 1);
+            $('img').css('transition', 'all ease .5s')
+            
+            $('.span-container span').eq(imgCurrent +1 ).css('transition', 'ease .5s ').css('background', '#7acbeb').css('transform', 'scale(1.2)');
         }, 4000);
         
         initSlider()
-    }, [imgCurrent])
+    }, [imgCurrent]);
+
+
 
     return(
         <S.SectionContainer>
@@ -51,10 +57,10 @@ export const Detiong = ()=> {
                 <button><FaPlay/>Play</button>
                 </Link>
 
-                <S.ContainerIndex >
+                <S.ContainerIndex className='span-container'>
                     {movies.map((_, index) => {
                         return(
-                                <span key={index}></span>
+                                <span key={index} ></span>
                             )
                         })}
                 </S.ContainerIndex>

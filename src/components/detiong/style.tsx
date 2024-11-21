@@ -66,9 +66,12 @@ export const MovieInfo = styled.div`
         letter-spacing: 1rem;
     }
 
-    button{
+    a{
         width: 13rem;
         height: 4rem;
+
+        button{
+        width: 100%;
         background-color: #d00916;
         border: none;
         font-weight: 400;
@@ -91,6 +94,9 @@ export const MovieInfo = styled.div`
             font-size: 2rem;
         }
     }
+    }
+
+    
 
     @media (max-width: 768px) {
         max-height: 30rem;
