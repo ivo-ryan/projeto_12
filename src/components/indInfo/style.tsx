@@ -99,7 +99,6 @@ export const InfoDetails = styled.div`
     padding-bottom: 1rem;
 
     p {
-        display: block;
         font-weight: 600 ;
         letter-spacing: .2rem;
         span{

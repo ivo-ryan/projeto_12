@@ -31,11 +31,13 @@ export const Container = styled.div`
 `;
 
 export const ContainerImg = styled.div`
+    display: flex;
     width: 100%;
     height: 100%;
     position: absolute;
 
     img{
+        display: none;
         width: 100%;
         height: 100%;
         filter: grayscale(20%);
@@ -56,9 +58,9 @@ export const MovieInfo = styled.div`
     flex-direction: column;
     justify-content: space-around;
     z-index: 5;
-    height: 35rem;
-    padding-left: 3rem;
+    left: 3rem;
     width: 50%;
+    top: 3rem;
     
 
     h2{
@@ -66,9 +68,38 @@ export const MovieInfo = styled.div`
         letter-spacing: 1rem;
     }
 
+    
+
+    @media (max-width: 768px) {
+        max-height: 30rem;
+        width: 70%;
+        justify-content: flex-start;
+        gap: 2rem;
+
+        h2{
+            font-size: 2rem;
+            padding-top: 2rem;
+        }
+
+        p{
+            line-height: 2.4rem;
+        }
+
+        
+    }
+`;
+
+export const ButtonContainer = styled.div`
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+    z-index: 2;
+
     a{
         width: 13rem;
         height: 4rem;
+        position: absolute;
+        bottom: 0;
 
         button{
         width: 100%;
@@ -94,26 +125,11 @@ export const MovieInfo = styled.div`
             font-size: 2rem;
         }
     }
+
     }
 
-    
-
     @media (max-width: 768px) {
-        max-height: 30rem;
-        width: 70%;
-        justify-content: flex-start;
-        gap: 2rem;
-
-        h2{
-            font-size: 2rem;
-            padding-top: 2rem;
-        }
-
-        p{
-            line-height: 2.4rem;
-        }
-
-        button{
+       a button{
             width: 10rem;
             font-size: 1.8rem;
             height: 3rem;
@@ -131,8 +147,7 @@ export const ContainerIndex = styled.div`
         position: absolute;
         z-index: 4;
         bottom: 2rem;
-        left: 50%;
-        right: -50%;
+        left: 35%;
         width: 100%;
         gap: 2rem;
         span{
