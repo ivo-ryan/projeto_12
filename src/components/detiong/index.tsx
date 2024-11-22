@@ -20,8 +20,10 @@ export const Detiong = ()=> {
         const initSlider = () => {
             
             const items = movies.length;
+            console.log(imgCurrent);
+            
 
-            if (imgCurrent === items - 1) {
+            if (imgCurrent === items) {
                 setImgCurrent(0);     
             }
             
@@ -54,6 +56,10 @@ export const Detiong = ()=> {
         <S.SectionContainer>
             <S.Container>
                 <S.ContainerImg className='container-img'>
+                    {
+                        imgCurrent === 0  ? <img src={movies[0].banner_large} alt={movies[0].name} /> : null
+                    }
+
                     {movies.map((item, index) => {
                         return(
                             <img src={item.banner_large} alt={item.name}  key={index}/>
