@@ -6,7 +6,7 @@ export const Footer = () => {
     return(
         <S.Footer>
             <S.Container>
-                <p>&copy; <span id="year">2024</span> Ivo Ryan. Todos os direitos reservados.</p>
+                <p>&copy; <span>2024</span> Ivo Ryan. Todos os direitos reservados.</p>
                 <a href="/privacy-policy" >Política de Privacidade</a>
             </S.Container>
             <S.Contact>

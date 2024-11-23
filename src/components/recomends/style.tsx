@@ -18,15 +18,44 @@ export const SectionContainer = styled.section`
 
 export const ContainerCards = styled.div`
     display: flex;
-    width: 100%;
+    width: 90%;
+    height: 35rem;
     align-items: center;
-    justify-content: flex-start;
+    justify-content:center;
     gap: 2rem;
+
+    overflow-x: auto; /* Habilita scroll horizontal */
+    white-space: nowrap; /* Mantém os itens em uma única linha */
+    
+    /* Remove barra de rolagem (opcional) */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Firefox */
+
+    &::-webkit-scrollbar {
+        height: 8px; /* Altura da barra de rolagem no Chrome, Edge e Safari */
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #888; /* Cor da barra */
+        border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Cor ao passar o mouse */
+    }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo */
+  }
+
+  a{
+    width: 25rem;
+    max-height: 25rem;
+  }
 `;
 
 export const Card = styled.div`
-    max-width: 25rem;
-    max-height: 35rem;
+    width: 100%;
     border-radius: 1rem;
     position: relative;
     cursor: pointer;
@@ -35,14 +64,14 @@ export const Card = styled.div`
 
 export const ImageContainer = styled.div`
     border-radius: 1rem;
-    width: 100%;
     display: flex;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     
     img{
         border-radius: 1rem;
         width: 100%;
+        height: 30rem;
         filter: grayscale(70%);
         transition: all .5s ease;
 
@@ -61,17 +90,6 @@ export const ImageContainer = styled.div`
     }
 `;
 
-export const InfoCard = styled.div`
-    position: absolute;
-    bottom: 1rem;
-    left: 3rem;
-    
-    svg{
-        font-size: 3rem;
-        color: orange;
-    }
-
-`;
 
 export const PlayContainer = styled.div`
         position: absolute;
@@ -100,4 +118,5 @@ export const Ponts = styled.div`
     padding: .5rem ;
     border-radius: 50%;
     box-shadow: 0 .5rem 1rem #000;
+    z-index: 10;
 `;

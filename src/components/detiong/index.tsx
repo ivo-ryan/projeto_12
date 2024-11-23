@@ -19,13 +19,14 @@ export const Detiong = ()=> {
 
         const initSlider = () => {
             
-            const items = movies.length;
-            console.log(imgCurrent);
-            
+            const items = movies.length;           
 
             if (imgCurrent === items) {
-                setImgCurrent(0);     
+               setImgCurrent(0);     
             }
+
+            console.log(imgCurrent);
+            
             
             const itemFilter = movies.filter(( _, index) => index === imgCurrent);
             setMovie(itemFilter);  
@@ -56,9 +57,6 @@ export const Detiong = ()=> {
         <S.SectionContainer>
             <S.Container>
                 <S.ContainerImg className='container-img'>
-                    {
-                        imgCurrent === 0  ? <img src={movies[0].banner_large} alt={movies[0].name} /> : null
-                    }
 
                     {movies.map((item, index) => {
                         return(

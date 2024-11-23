@@ -10,13 +10,18 @@ export const Footer = styled.footer`
     width: 100%;
     position: relative;
 
+    @media (max-width: 500px) {
+        gap: 1rem;
+        justify-content: center;
+    }
+
 `;
 
 export const Container = styled.div`
     color: #B3B3B3; 
-    padding: 20px; 
+    padding: 2rem; 
     text-align: center; 
-    font-size: 14px;
+    font-size: 1.4rem;
 
     a,p{
         letter-spacing: .2rem;
@@ -24,9 +29,18 @@ export const Container = styled.div`
     
     a{
         display: inline-block;
-        color: #E50914; margin: 0 10px;
+        color: #E50914;
+        margin: 0 1rem;
         padding-top: 1rem;
     }
+
+    @media (max-width: 500px) {
+        font-size: 1rem;
+        padding: 0 1rem 0 0;
+        text-align: left;
+        width: 60%;
+    }
+    
 `;
 
 export const Contact = styled.div`
@@ -35,6 +49,14 @@ export const Contact = styled.div`
 
     svg{
         font-size: 2.8rem;
+    }
+
+    @media (max-width: 500px) {
+        gap: 1rem;
+
+        svg{
+            font-size: 2rem;
+        }
     }
 `;
 

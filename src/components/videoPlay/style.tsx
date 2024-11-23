@@ -21,12 +21,23 @@ export const VideoContainer = styled.div`
   padding: 1.6rem;
   border-radius: .8rem;
   box-shadow: 0 .4rem 1rem #111;
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
+
+  @media (max-width: 500px) {
+      width: 90%;
+    }
 `;
 
 export const StyledVideo = styled.video`
   width: 100%;
   max-height: 50rem;
   border-radius: .8rem;
+  @media (max-width: 768px) {
+    max-height: 40rem;
+  }
 `;
 
 export const TitleContainer = styled.div`
@@ -34,10 +45,12 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  max-width: 90%;
+  gap: .5rem;
+  width: 90%;
+  padding-top:3rem;
 
   h2{
+    text-align: center;
     color: #fff;
     font-weight: 600;
     font-size: 3rem;
@@ -49,31 +62,62 @@ export const TitleContainer = styled.div`
     background-color: #cccccc;
     height: .1rem;
   }
+
+  @media (max-width: 768px) {
+    width: 95%;
+    h2{
+      font-size: 1.9rem;
+    }
+
+    span{
+      width: 20rem;
+    }
+
+    @media (max-width: 500px) {
+      span{
+        width: 4rem;
+      }
+    }
+  }
 `;
 
 
 export const DescriptionContainer = styled.div`
   background-color: #333;
   width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   padding: 3rem;
   min-height: 10rem;
-  gap: 1rem;
   box-shadow: 0 .4rem 1rem #111;
 
 
-  h3{
+  p{
     color: #fff;
     font-size: 2rem;
+    font-weight: 600;
     letter-spacing: .2rem;
 
+    
+    span{
+      color: #B3B3B3;
+      font-size: 1.8rem;
+      letter-spacing: .2rem;
+      padding-left: 1rem;
+      font-weight: 500;
+    }
   }
 
-  p{
-    color: #B3B3B3;
-    font-size: 1.8rem;
-    letter-spacing: .2rem;
+  @media (max-width: 768px) {
+    padding: 2rem;
+    p{
+      font-size: 1.6rem;
+      
+      span{
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 90%;
   }
 `;

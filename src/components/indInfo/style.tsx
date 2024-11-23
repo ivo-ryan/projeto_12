@@ -25,6 +25,12 @@ export const ImageContainer = styled.div`
         border-radius: .6rem;
         box-shadow: 0 .4rem 1rem #000;
     }
+
+    @media (max-width: 500px) {
+        img {
+            max-height: 30rem;
+        }
+    }
 `;
 
 export const ContainerInfo = styled.div`
@@ -33,9 +39,7 @@ export const ContainerInfo = styled.div`
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    justify-content: flex-start;
-
-    
+    justify-content: flex-start;   
 
     p{
         font-size: 2rem;
@@ -48,28 +52,37 @@ export const ContainerInfo = styled.div`
         }
     }
 
-    svg{
-        font-size: 3rem;
-        color: orange;
-    }
-
     a{
         width: 15rem;
+    }
+
+    @media (max-width: 500px) {
+      p{
+        font-size: 1.5rem;
+
+        span{
+            font-size: 1.4rem;
+        }
+      }
     }
 
 `;
 
 export const ContainerTitle = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
     width: 90%;
     margin-top: 2rem;
 
     h2{
         font-size: 2.4rem;
         letter-spacing: .4rem;
-    }  
+    } 
+    
+    @media (max-width: 500px) {
+        h2{
+            font-size: 1.8rem;
+        }
+    }
 `;
 
 export const InfoStars = styled.div`
@@ -89,32 +102,30 @@ export const InfoStars = styled.div`
             border-radius: 50%;
             box-shadow: 0 .2rem .7rem #111;
         }
+
+    @media (max-width: 500px) {
+        span{
+            font-size: 2rem;
+        }
+    }
 `;
 
 export const InfoDetails = styled.div`
-    width: 100%;
+    display: flex;
     flex-direction: column;
-    gap: 5rem;
-    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    align-items: start;
     padding-bottom: 1rem;
-
-    p {
-        font-weight: 600 ;
-        letter-spacing: .2rem;
-        span{
-            font-weight: 500;
-            color: #B3B3B3 ;
-        }
-    }
 `;
 
 export const PlayContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: .5rem;
+    gap: 1rem;
     background-color: rgba(0,0,0, 0.4);
-    width: 15rem;
+    width: 100%;
     border-radius: 3rem;
     padding: .5rem 0;
     cursor: pointer;
@@ -123,13 +134,25 @@ export const PlayContainer = styled.div`
     h2{
         font-size: 2rem;
         color: #fff;
+        letter-spacing: .4rem;
     }
 
     svg{
+        font-size: 3rem;
         color:#d00916 ;
     }
 
     &:hover{
         box-shadow: 0 0 1rem #d00916;
+    }
+
+    @media (max-width: 500px) {
+        h2{
+            font-size: 1.5rem;
+        }
+
+        svg{
+            font-size: 2rem;
+        }
     }
 `;

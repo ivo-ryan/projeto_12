@@ -23,9 +23,12 @@ export const VideoPlay = () => {
       </S.VideoContainer>
 
       <S.DescriptionContainer>
-        <h3>Sinopse:</h3>
+       
         <p>
-         {movie[0]?.description}
+          Sinopse:
+          <span>
+            {movie[0]?.description}
+          </span>
         </p>
       </S.DescriptionContainer>
     </S.SectionContainer>
