@@ -84,8 +84,10 @@ export const MovieInfo = styled.div`
         p{
             line-height: 2.4rem;
         }
+    }
 
-        
+    @media (max-width: 500px) {
+        top: 1rem;
     }
 `;
 
@@ -156,5 +158,12 @@ export const ContainerIndex = styled.div`
             height: 1rem;
             border-radius: 50%;
             background-color:#B3B3B3 ;
+        }
+
+        @media (max-width: 500px) {
+            width: 70%;
+            gap: 1rem;
+            bottom: 1rem;
+            left: 20%;
         }
 `;
