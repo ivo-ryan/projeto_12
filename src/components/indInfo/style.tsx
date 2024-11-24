@@ -8,7 +8,6 @@ export const SectionContainer = styled.section`
     align-items: center;
     justify-content: center;
     width: 100%;
-    min-height: 80rem;
     padding: 1rem ;
     gap: 2rem;
     color: #fff;
@@ -127,6 +126,7 @@ export const PlayContainer = styled.div`
     background-color: rgba(0,0,0, 0.4);
     width: 100%;
     border-radius: 3rem;
+    margin-bottom: 1rem;
     padding: .5rem 0;
     cursor: pointer;
     transition: all .5s ease-in;
