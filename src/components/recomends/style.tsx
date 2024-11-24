@@ -23,33 +23,33 @@ export const ContainerCards = styled.div`
     justify-content:flex-start;
     gap: 2rem;
 
-    overflow-x: auto; /* Habilita scroll horizontal */
-    white-space: nowrap; /* Mantém os itens em uma única linha */
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap; 
     
-    /* Remove barra de rolagem (opcional) */
-    scrollbar-width: thin; /* Firefox */
-    scrollbar-color: #888 #f1f1f1; /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
 
     &::-webkit-scrollbar {
-        height: 8px; /* Altura da barra de rolagem no Chrome, Edge e Safari */
+        height: 8px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #888; /* Cor da barra */
+        background: #888;
         border-radius: 4px;
     }
 
     &::-webkit-scrollbar-thumb:hover {
-        background: #555; /* Cor ao passar o mouse */
+        background: #555;
     }
 
   &::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Cor do fundo */
+    background: #f1f1f1;
   }
 
     a {
         position: relative;
-        flex: 0 0 auto; /* Garante que os itens não encolham */
+        flex: 0 0 auto; 
         width: 25rem;
         height: 25rem;
         display: block;
