@@ -6,7 +6,11 @@ export const SectionContainer = styled.section`
     justify-content: center;
     flex-direction: column;
     gap: 2rem;
-    background-color: #3F3D3C;
+    background-image: url('https://wallpapercave.com/wp/wp4951502.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     padding: 3rem 2rem ;
     color: #fff;
 

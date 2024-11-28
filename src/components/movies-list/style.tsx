@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const ContainerMovies = styled.div`
     padding-bottom: 2rem;
-    background-color: #4E4E50;
+    background-image: url('https://wallpapercave.com/wp/wp4951502.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     color: #fff;
     a{
         color: #fff;

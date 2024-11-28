@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 
 export const SectionContainer = styled.section`
-    background-color: #3F3D3C;
+    background-image: url('https://wallpapercave.com/wp/wp4951502.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
     width: 100%;
     min-height: 30rem;
     display: flex;
@@ -41,10 +45,11 @@ export const StyledVideo = styled.video`
 `;
 
 export const TitleContainer = styled.div`
-  background-color:#3F3D3C ;
+  background-color:rgba(255, 255, 255 , 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 .5rem;
   gap: .5rem;
   width: 90%;
   padding-top:3rem;
