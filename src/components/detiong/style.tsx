@@ -12,6 +12,7 @@ export const SectionContainer = styled.section`
     box-shadow: 0 0.5rem 1.5rem black;
     position: relative;
     z-index: 1;
+    overflow-y: hidden;
 
     @media (max-width: 768px) {
         height: 25rem;
@@ -35,6 +36,7 @@ export const ContainerImg = styled.div`
     width: 100%;
     height: 100%;
     position: absolute;
+    overflow-y: hidden;
 
     img{
         display: none;

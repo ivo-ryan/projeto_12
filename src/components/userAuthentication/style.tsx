@@ -18,13 +18,13 @@ export const FormContainer = styled.div`
     }
     
     h2{
-        width: 65%;
+        width: 94%;
         color: #fff;
         font-size: 2rem;
         text-align: center;
     }
     
-    input,button,p{
+    input,p{
         width:60%; 
         padding:1rem;
     }
@@ -49,25 +49,55 @@ export const ErroMessage = styled.p`
     font-size: 1.4rem;
 `;
 
-export const Button = styled.button`
-    border: none;
+export const ButtonContainer = styled.div`
     border-radius: .5rem;
-    background-color: #28a745;
-    cursor: pointer;
-    color: #fff;
+    width: 60%;
+    a{
 
-    &:hover {
-        background-color: #218838;
-        transform: scale(1.05); 
-    }
+    button{ 
+        cursor: pointer;
+        border-radius: .5rem;
+        background-color: #28a745;
+        width: 100%;
+        border: none;
+        color: #fff;
 
-    &:active {
-        background-color: #1e7e34; 
-        transform: scale(1);
-    }
+        &:hover {
+            background-color: #218838;
+            transform: scale(1.05); 
+        }
 
-    &:disabled {
-        background-color: #cccccc;
-        cursor: not-allowed; 
+        &:active {
+            background-color: #1e7e34; 
+            transform: scale(1);
+        }
+
+        &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed; 
+        }
+        }}
+`;
+
+export const IsAutenticated = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+    p{
+        text-align: left;
+        font-size: 1.6rem;
+        color:#007BFF;
+        cursor: pointer;
+        transition: all .5s ease;
+        
+        &:hover{
+            color: #0056b3;
+            text-decoration: underline; 
+            
+        }
+
     }
 `;
