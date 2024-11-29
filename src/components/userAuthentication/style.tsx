@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const FormContainer = styled.div`
     display: flex;
@@ -30,17 +30,24 @@ export const FormContainer = styled.div`
     }
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<({erro:boolean})>`
     outline: none;
-    border: none;
+    border: 1px solid #6A0DAD;
     border-radius: .5rem;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
+    transition: all .5s ease;
     
     &::placeholder{
         color: #fff;
     }
 
+    &:focus{
+        outline: 1px solid #8c75a6;
+        ${({erro}) => erro && css`outline: none;`}
+    }
+
+    ${({erro}) => erro && css`border: 1px solid red;`}
 `;
 
 export const ErroMessage = styled.p`

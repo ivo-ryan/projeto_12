@@ -7,18 +7,16 @@ import { UserAuthentication } from "../userAuthentication";
 import axios from "axios";
 
 const schema = z.object({
-    user: z.string().min(5, 'Nome de usuário inválido!'),
-    email: z.string().min(5, 'Digite um email válido!')
-});
+    email: z.string().email('Digite um email válido'),
+    user: z.string().min(5, 'Nome de usuário inválido!')});
 
 type FormDataProps = z.infer<typeof schema>;
 
 
 export const Form = () => {
     const [ autenticated, setAutenticated  ] = useState(false);
-    
 
-    const { register, handleSubmit , formState: {errors} } = useForm<FormDataProps>({
+    const { register, handleSubmit , formState: {errors} , reset} = useForm<FormDataProps>({
         criteriaMode: 'all',
         mode: 'all',
         resolver: zodResolver(schema),
@@ -39,7 +37,15 @@ export const Form = () => {
                 user: e.user,
             })
 
-            return console.log(req.status);
+            console.log(req.status);
+            console.log(e);
+            
+            
+            reset();
+
+            if(req.status === 200){
+                return setAutenticated(true);
+            };
             
         }
 

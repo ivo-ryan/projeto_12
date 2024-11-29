@@ -94,8 +94,8 @@ export const IsAutenticated = styled.div`
         transition: all .5s ease;
         
         &:hover{
-            color: #0056b3; /* Azul mais escuro para indicar hover */
-            text-decoration: underline; /* Opcional: Adiciona sublinhado no hover */
+            color: #0056b3;
+            text-decoration: underline;
             
         }
 
@@ -104,17 +104,18 @@ export const IsAutenticated = styled.div`
 
 export const Input = styled.input<{erro: boolean}>`
         outline: none;
-        border: 1px solid green;
+        border: 1px solid #6A0DAD;
         border-radius: .5rem;
         background-color: rgba(255, 255, 255, 0.2);
         color: #fff;
+        transition: all .5s ease;
     
         &::placeholder{
             color: #fff;
         }
 
         &:focus{
-            outline: 1px solid aquamarine;
+            outline: 1px solid #8c75a6;
             ${({erro}) => erro && css`outline: none;`}
         }
 
