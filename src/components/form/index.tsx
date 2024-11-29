@@ -54,9 +54,9 @@ export const Form = () => {
            { autenticated === false ? ( <> 
                 <h2>Cadastre - se </h2>
                 <form onSubmit={handleSubmit(handleFormSubmit)}>
-                    <S.Input type="text" {...register("user")} placeholder="User"/>
+                    <S.Input type="text" {...register("user")} placeholder="User" erro={!!errors.user?.message}/>
                     {errors && <S.ErroMessage>{errors.user?.message}</S.ErroMessage>}
-                    <S.Input type="text" {...register('email')} placeholder="Email" />
+                    <S.Input type="text" {...register('email')} placeholder="Email"  erro={!!errors.email?.message}/>
                     {errors && <S.ErroMessage>{errors.email?.message}</S.ErroMessage>}
                     <S.Button type="submit">Enviar</S.Button>
                 </form>

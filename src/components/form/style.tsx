@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const SectionContainer = styled.section`
     display: flex;
@@ -50,19 +50,6 @@ export const FormContainer = styled.div`
     }
     `;
 
-export const Input = styled.input`
-    outline: none;
-    border: none;
-    border-radius: .5rem;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    
-    &::placeholder{
-        color: #fff;
-    }
-
-`;
-
 export const ErroMessage = styled.p`
     text-align: left;
     color: red;
@@ -113,4 +100,30 @@ export const IsAutenticated = styled.div`
         }
 
     }
+`;
+
+export const Input = styled.input<{erro: boolean}>`
+        outline: none;
+        border: 1px solid green;
+        border-radius: .5rem;
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    
+        &::placeholder{
+            color: #fff;
+        }
+
+        &:focus{
+            outline: 1px solid aquamarine;
+            ${({erro}) => erro && css`outline: none;`}
+        }
+
+    ${({erro}) => erro && css`border-color: red;`}
+
+`;
+
+
+export const HelperText = styled.p`
+        color: red;
+        font-size: 14px;
 `;
