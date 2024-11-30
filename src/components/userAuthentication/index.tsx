@@ -17,11 +17,13 @@ type AutenticatedProps = {
 } 
 
 export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
+
     const { handleSubmit, formState: {errors}, register, watch , getValues } = useForm<FormProps>({
         mode: 'all',
         criteriaMode: 'all',
         resolver: zodResolver(schema)
     });
+    
     const [ autentication, setAutentication ] = useState(false);
     const [ user, setUser ] = useState('');
 
