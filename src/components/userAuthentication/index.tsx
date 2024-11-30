@@ -40,8 +40,7 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
             }else{
                 setAutentication(true);
                 setUser(filterUser[0].user);
-            }
-            
+            }         
             
         }
 
