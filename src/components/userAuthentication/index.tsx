@@ -23,10 +23,9 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
         criteriaMode: 'all',
         resolver: zodResolver(schema)
     });
-    
+
     const [ autentication, setAutentication ] = useState(false);
     const [ user, setUser ] = useState('');
-
     
     const getUser = getValues('user');
     const watchUser = watch('user');
