@@ -72,8 +72,7 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
                     </S.ButtonContainer>
                         )
                     }
-
-                    
+            
                 </form>
 
                 <S.IsAutenticated>
