@@ -26,7 +26,8 @@ export const FormContainer = styled.div`
     width: 40%;
     border-radius: 1rem;
     border: .1rem solid #333;
-    
+
+   
     form{
         display: flex;
         align-items: center;
@@ -44,16 +45,48 @@ export const FormContainer = styled.div`
         text-align: center;
     }
     
-    input,button,p{
+    input,button{
         width:60%; 
         padding:1rem;
     }
+
+    @media (max-width: 1024px) {
+        width: 55%;
+
+        input,button,h2{
+            width: 70% ;
+        }
+    }
+
+    @media (max-width: 500px) {
+        width: 90%;
+
+        h2{
+            text-align: left;
+            padding-left: 3.5rem;
+        }
+
+        input,button{
+            width: 80%;
+        }
+    }
+    
     `;
 
 export const ErroMessage = styled.p`
     text-align: left;
+    width: 60%;
     color: red;
     font-size: 1.4rem;
+    padding-bottom: 1rem;
+
+    @media (max-width: 1024px) {
+        width: 70%;
+    }
+
+    @media (max-width: 500px) {
+        width: 80%;
+    }
 `;
 
 export const Button = styled.button`
@@ -80,7 +113,7 @@ export const Button = styled.button`
 `;
 
 export const IsAutenticated = styled.div`
-    width: 100%;
+    width:65%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,6 +132,13 @@ export const IsAutenticated = styled.div`
             
         }
 
+    }
+
+    @media (max-width: 1024px) {
+        width: 55%;
+    }
+    @media (max-width: 768px) {
+        width: 60%;
     }
 `;
 
