@@ -24,7 +24,7 @@ export const FormContainer = styled.div`
         text-align: left;
     }
     
-    input,a,label{
+    input{
         width: 100%; 
     }
 
@@ -99,7 +99,7 @@ export const IsAutenticated = styled.div`
     padding: 0 10%;
 
     p{  
-        width: 50%;
+        width: 55%;
         text-align: left;
         font-size: 1.6rem;
         color:#007BFF;
@@ -111,10 +111,7 @@ export const IsAutenticated = styled.div`
             text-decoration: underline; 
             
         }
-        
-        @media (max-width: 500px) {
-            width: 50%;
-        }
+
         @media (max-width: 380px) {
             width: 65%;
         }
