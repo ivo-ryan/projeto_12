@@ -1,12 +1,19 @@
 import { FaPlay } from 'react-icons/fa';
 import * as S from './style';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { UseMoviesApi } from './useMoviesApi';
 
 
 
 export const Recomends = () => {
     const { moviesCurr } = UseMoviesApi();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleClickNavigation = (name:string) => {
+        navigate(`/${name}`, {state: { userName: location.state?.userName }});
+    };
 
     return(
         <S.SectionContainer>
@@ -19,8 +26,7 @@ export const Recomends = () => {
 
             {moviesCurr.map((movie, index) => {
                 return(
-                    <Link to={`/${movie.name}`} key={index}>
-                    <S.Card>
+                    <S.Card key={index} onClick={() => handleClickNavigation(movie.name)}>
                         <S.ImageContainer>
                             <img src={movie.banner_small} alt={movie.name} />
                             <S.PlayContainer>
@@ -33,7 +39,6 @@ export const Recomends = () => {
                         </S.Ponts>
     
                     </S.Card>
-                </Link>
                 )
             })}
              

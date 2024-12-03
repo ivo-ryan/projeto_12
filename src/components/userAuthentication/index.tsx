@@ -42,7 +42,7 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
                 return console.log('parei aqui');
                 
             }else{
-                navigate(`/dashboard/${getUser.user}`);
+                navigate("/dashboard", {state: {userName : getUser.user}});
             }                
         }
 
