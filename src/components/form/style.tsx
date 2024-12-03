@@ -23,7 +23,7 @@ export const FormContainer = styled.div`
     background-color: rgba(255, 255, 255, 0.1);
     gap: 1rem;
     padding: 2rem 0;
-    width: 40%;
+    width: 30%;
     border-radius: 1rem;
     border: .1rem solid #333;
 
@@ -34,59 +34,43 @@ export const FormContainer = styled.div`
         flex-direction: column;
         gap: .5rem;
         width: 100%;
+        padding: 0 10%;
         text-align: left;
         background: transparent; 
     }
     
     h2{
-        width: 65%;
+        padding: 0 10%;
         color: #fff;
         font-size: 2rem;
-        text-align: center;
+        text-align: left;
     }
     
     input,button{
-        width:60%; 
-        padding:1rem;
+        width: 100%;
     }
 
-    @media (max-width: 1024px) {
-        width: 55%;
+    @media (max-width: 1100px) {
+        width: 40%;
+    }
 
-        input,button,h2{
-            width: 70% ;
-        }
+    @media (max-width: 768px) {
+        width: 60%;
     }
 
     @media (max-width: 500px) {
         width: 90%;
-
-        h2{
-            text-align: left;
-            padding-left: 3.5rem;
-        }
-
-        input,button{
-            width: 80%;
-        }
     }
+
     
     `;
 
 export const ErroMessage = styled.p`
     text-align: left;
-    width: 60%;
+    width: 100%;
     color: red;
     font-size: 1.4rem;
     padding-bottom: 1rem;
-
-    @media (max-width: 1024px) {
-        width: 70%;
-    }
-
-    @media (max-width: 500px) {
-        width: 80%;
-    }
 `;
 
 export const Button = styled.button`
@@ -95,6 +79,8 @@ export const Button = styled.button`
     background-color: #28a745;
     cursor: pointer;
     color: #fff;
+    padding: 1rem 0;
+    transition: all .5s ease;
 
     &:hover {
         background-color: #218838;
@@ -113,13 +99,10 @@ export const Button = styled.button`
 `;
 
 export const IsAutenticated = styled.div`
-    width:65%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
+    padding: 0 10%;
 
-    p{
+    p{  
+        width: 48%;
         text-align: left;
         font-size: 1.6rem;
         color:#007BFF;
@@ -132,13 +115,13 @@ export const IsAutenticated = styled.div`
             
         }
 
-    }
+        @media (max-width: 500px) {
+            width: 50%;
+        }
+        @media (max-width: 380px) {
+            width: 65%;
+        }
 
-    @media (max-width: 1024px) {
-        width: 55%;
-    }
-    @media (max-width: 768px) {
-        width: 60%;
     }
 `;
 
@@ -149,6 +132,7 @@ export const Input = styled.input<{erro: boolean}>`
         background-color: rgba(255, 255, 255, 0.2);
         color: #fff;
         transition: all .5s ease;
+        padding: 1rem;
     
         &::placeholder{
             color: #fff;
@@ -161,10 +145,4 @@ export const Input = styled.input<{erro: boolean}>`
 
     ${({erro}) => erro && css`border-color: red;`}
 
-`;
-
-
-export const HelperText = styled.p`
-        color: red;
-        font-size: 14px;
 `;

@@ -18,16 +18,27 @@ export const FormContainer = styled.div`
     }
     
     h2{
-        width: 94%;
+        width: 100%;
         color: #fff;
         font-size: 2rem;
-        text-align: center;
+        text-align: left;
     }
     
-    input,p{
-        width:60%; 
-        padding:1rem;
+    input,a,label{
+        width: 100%; 
     }
+
+    @media (max-width: 500px) {
+        h2{
+            font-size: 1.8rem;
+        }
+    }
+    @media (max-width: 350px) {
+        h2{
+            font-size: 1.5rem;
+        }
+    }
+
 `;
 
 export const Input = styled.input<({erro:boolean})>`
@@ -37,6 +48,7 @@ export const Input = styled.input<({erro:boolean})>`
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     transition: all .5s ease;
+    padding: 1rem;
     
     &::placeholder{
         color: #fff;
@@ -52,48 +64,42 @@ export const Input = styled.input<({erro:boolean})>`
 
 export const ErroMessage = styled.p`
     text-align: left;
+    width: 100%;
+    padding-bottom: 1rem;
     color: red;
     font-size: 1.4rem;
 `;
 
-export const ButtonContainer = styled.div`
+export const Button= styled.button`
+    border: none;
     border-radius: .5rem;
-    width: 60%;
-    a{
+    background-color: #28a745;
+    cursor: pointer;
+    color: #fff;
+    padding: 1rem 0;
+    transition: all .5s ease;
 
-    button{ 
-        cursor: pointer;
-        border-radius: .5rem;
-        background-color: #28a745;
-        width: 100%;
-        border: none;
-        color: #fff;
+    &:hover {
+        background-color: #218838;
+        transform: scale(1.05); 
+    }
 
-        &:hover {
-            background-color: #218838;
-            transform: scale(1.05); 
-        }
+    &:active {
+        background-color: #1e7e34; 
+        transform: scale(1);
+    }
 
-        &:active {
-            background-color: #1e7e34; 
-            transform: scale(1);
-        }
-
-        &:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed; 
-        }
-        }}
+    &:disabled {
+        background-color: #cccccc;
+        cursor: not-allowed; 
+    }
 `;
 
 export const IsAutenticated = styled.div`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
+    padding: 0 10%;
 
-    p{
+    p{  
+        width: 50%;
         text-align: left;
         font-size: 1.6rem;
         color:#007BFF;
@@ -104,6 +110,17 @@ export const IsAutenticated = styled.div`
             color: #0056b3;
             text-decoration: underline; 
             
+        }
+        
+        @media (max-width: 500px) {
+            width: 50%;
+        }
+        @media (max-width: 380px) {
+            width: 65%;
+        }
+
+        @media (max-width: 350px) {
+            width: 75%;
         }
 
     }

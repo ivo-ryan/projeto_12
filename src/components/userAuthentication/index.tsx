@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import * as S from './style';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
@@ -18,16 +18,18 @@ type AutenticatedProps = {
 
 export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
 
-    const { handleSubmit, formState: {errors}, register, watch , getValues } = useForm<FormProps>({
+    const { handleSubmit, formState: {errors}, register, watch  } = useForm<FormProps>({
         mode: 'all',
         criteriaMode: 'all',
         resolver: zodResolver(schema)
     });
 
-    const [ autentication, setAutentication ] = useState(false);
-    const [ user, setUser ] = useState('');
-    
-    const getUser = getValues('user');
+    const [ getUser , setGetUser ] = useState<FormProps>({
+        user: ''
+    });    
+
+    const navigate = useNavigate();
+
     const watchUser = watch('user');
 
     useEffect(() => {
@@ -35,43 +37,31 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
             const req = await axios.get('https://movie-api-cwkr.onrender.com/user');
             const res = req.data;
             const filterUser = res.filter((user:FormProps) => user.user === watchUser );
-
-            if(filterUser.length === 0){
-                setAutentication(false);
+      
+            if(!filterUser.length || getUser.user.length === 0 || !filterUser){
+                return console.log('parei aqui');
+                
             }else{
-                setAutentication(true);
-                setUser(filterUser[0].user);
-            }         
-            
+                navigate(`/${getUser.user}`);
+            }                
         }
 
-        fetchData()
+        fetchData();
     },[getUser]);
+
+
+    const handleSubmitForm = (e:FormProps) => {       
+        setGetUser(e)
+    }
 
     return(
         <S.FormContainer>
             <h2>Digite seu nome de usuário! </h2>
-                <form onSubmit={handleSubmit((e) => console.log(e))}>
-                    <S.Input type="text" {...register("user")} placeholder="User name" erro={!!errors.user?.message}/>
+                <form onSubmit={handleSubmit(handleSubmitForm)}>
+                    <S.Input type="text" {...register("user", { required: true })} placeholder="User name" erro={!!errors.user?.message}/>
                     {errors && <S.ErroMessage>{errors.user?.message}</S.ErroMessage>}
 
-                    {
-                        autentication === true ? (
-                            <S.ButtonContainer>
-                        <Link to={`/dashboard/${user}`}>
-                        <button type="submit">Entrar</button>                 
-                        </Link>
-
-                    </S.ButtonContainer>
-                        ):(
-                            <S.ButtonContainer>
-                        <Link to={`/`}>
-                        <button type="submit">Entrar</button>                 
-                        </Link>
-
-                    </S.ButtonContainer>
-                        )
-                    }
+                       <S.Button>Entrar</S.Button>
             
                 </form>
 
