@@ -26,7 +26,9 @@ export const Recomends = () => {
 
             {moviesCurr.map((movie, index) => {
                 return(
-                    <S.Card key={index} onClick={() => handleClickNavigation(movie.name)}>
+                    <S.CardContainer key={index} onClick={() => handleClickNavigation(movie.name)}>
+                        <S.Card>
+
                         <S.ImageContainer>
                             <img src={movie.banner_small} alt={movie.name} />
                             <S.PlayContainer>
@@ -37,13 +39,12 @@ export const Recomends = () => {
                         <S.Ponts>
                             {movie.nota}
                         </S.Ponts>
+                        </S.Card>
     
-                    </S.Card>
+                    </S.CardContainer>
                 )
             })}
-             
-
-            
+          
             </S.ContainerCards>
 
         </S.SectionContainer>

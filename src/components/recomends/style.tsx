@@ -18,6 +18,7 @@ export const SectionContainer = styled.section`
         font-size: 2rem;
         letter-spacing: .4rem;
     }
+
 `;
 
 export const ContainerCards = styled.div`
@@ -27,15 +28,14 @@ export const ContainerCards = styled.div`
     flex-wrap: wrap;
     gap: 2rem;
 
-    @media (max-width: 768px) {
-        justify-content: center;
-    }
+    
 
     @media (max-width: 500px) {
-        flex-wrap: nowrap;
         overflow-x: auto;
         overflow-y: hidden;
-        white-space: nowrap; 
+        white-space: nowrap;  
+        flex-wrap: nowrap;
+
     }
     
     scrollbar-width: thin;
@@ -61,12 +61,17 @@ export const ContainerCards = styled.div`
 
 `;
 
+export const CardContainer = styled.div`
+        position: relative;
+        flex: 0 0 auto; 
+        width: 25rem;
+        height: 30rem;
+        display: block;
+        border-radius: 1rem;
+`;
+
 export const Card = styled.div`
-    position: relative;
-    flex: 0 0 auto; 
-    width: 25rem;
-    height: 30rem;
-    display: block;
+    width: 100%;
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: .2rem .6rem 1rem #111;
@@ -75,13 +80,14 @@ export const Card = styled.div`
 export const ImageContainer = styled.div`
     border-radius: 1rem;
     display: flex;
-    align-items: flex-start;
+    align-items: end;
     justify-content: center;
     
     img{
         border-radius: 1rem;
         width: 100%;
         height: 30rem;
+        object-fit: cover;
         filter: grayscale(70%);
         transition: all .5s ease;
 
@@ -128,5 +134,13 @@ export const Ponts = styled.div`
     padding: .5rem ;
     border-radius: 50%;
     box-shadow: 0 .5rem 1rem #000;
-    z-index: 20;
+    z-index: 2;
+`;
+
+export const ScrollButtonLeft = styled.div`
+
+`;
+
+export const ScrollButtonRight = styled.div`
+
 `;
