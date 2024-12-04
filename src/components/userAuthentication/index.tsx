@@ -39,7 +39,7 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
             const filterUser = res.filter((user:FormProps) => user.user === watchUser );
       
             if(!filterUser.length || getUser.user.length === 0 || !filterUser){
-                return console.log('parei aqui');
+                return 
                 
             }else{
                 navigate("/dashboard", {state: {userName : getUser.user}});

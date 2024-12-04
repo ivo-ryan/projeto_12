@@ -72,6 +72,7 @@ export const ErroMessage = styled.p`
 
 export const Button= styled.button`
     border: none;
+    outline: none;
     border-radius: .5rem;
     background-color: #28a745;
     cursor: pointer;

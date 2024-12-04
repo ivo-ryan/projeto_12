@@ -22,14 +22,21 @@ export const SectionContainer = styled.section`
 
 export const ContainerCards = styled.div`
     display: flex;
-    height: 35rem;
     align-items: center;
     justify-content:flex-start;
+    flex-wrap: wrap;
     gap: 2rem;
 
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap; 
+    @media (max-width: 768px) {
+        justify-content: center;
+    }
+
+    @media (max-width: 500px) {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap; 
+    }
     
     scrollbar-width: thin;
     scrollbar-color: #888 #f1f1f1;
@@ -51,19 +58,15 @@ export const ContainerCards = styled.div`
     background: #f1f1f1;
   }
 
-    a {
-        position: relative;
-        flex: 0 0 auto; 
-        width: 25rem;
-        height: 25rem;
-        display: block;
-        border-radius: 1rem;
-  }
 
 `;
 
 export const Card = styled.div`
-    width: 100%;
+    position: relative;
+    flex: 0 0 auto; 
+    width: 25rem;
+    height: 30rem;
+    display: block;
     border-radius: 1rem;
     cursor: pointer;
     box-shadow: .2rem .6rem 1rem #111;
@@ -72,7 +75,7 @@ export const Card = styled.div`
 export const ImageContainer = styled.div`
     border-radius: 1rem;
     display: flex;
-    align-items: end;
+    align-items: flex-start;
     justify-content: center;
     
     img{
@@ -125,5 +128,5 @@ export const Ponts = styled.div`
     padding: .5rem ;
     border-radius: 50%;
     box-shadow: 0 .5rem 1rem #000;
-    z-index: 2;
+    z-index: 20;
 `;
