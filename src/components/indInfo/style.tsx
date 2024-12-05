@@ -51,10 +51,6 @@ export const ContainerInfo = styled.div`
         }
     }
 
-    a{
-        width: 15rem;
-    }
-
     @media (max-width: 500px) {
       p{
         font-size: 1.5rem;
@@ -124,7 +120,7 @@ export const PlayContainer = styled.div`
     justify-content: center;
     gap: 1rem;
     background-color: rgba(0,0,0, 0.4);
-    width: 100%;
+    width: 15rem;
     border-radius: 3rem;
     margin-bottom: 1rem;
     padding: .5rem 0;
@@ -143,7 +139,16 @@ export const PlayContainer = styled.div`
     }
 
     &:hover{
+        background-color: rgba(255, 255, 255, 0.711) ;
         box-shadow: 0 0 1rem #d00916;
+        transform: scale(1.1);
+        h2{
+            color: #000;
+        }
+
+        &:active{
+            transform: scale(1);
+        }
     }
 
     @media (max-width: 500px) {

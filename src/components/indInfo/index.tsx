@@ -1,12 +1,18 @@
 import { FaPlayCircle } from 'react-icons/fa';
 import * as S from './style';
-import { Link, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { UseMoviesApi } from './useMoviesApi';
 
 export const IndInfo = () => {
     
     const { movie } = UseMoviesApi();
     const { name } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleClickNavigate = () => {
+        navigate(`/${name}/play`,{ state: { userName: location.state?.userName }} );
+    };
     
     return(
         <S.SectionContainer>
@@ -43,11 +49,9 @@ export const IndInfo = () => {
                     </p>
                 </S.InfoDetails>
 
-                <Link to={`/${name}/play`}>
-                <S.PlayContainer>
+                <S.PlayContainer onClick={() => handleClickNavigate()}>
                     <h2>Play</h2><FaPlayCircle/>
                 </S.PlayContainer>
-                </Link>
         
 
             </S.ContainerInfo>

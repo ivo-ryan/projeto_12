@@ -7,6 +7,7 @@ import { useParams } from "react-router";
 export const UseApi = () => {
     const [ movie, setMovie ] = useState<MoviesTypes[]>([]);
     const { name } = useParams();
+    
 
     useEffect(() => {
         const data = async () => {

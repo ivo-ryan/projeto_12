@@ -52,7 +52,7 @@ export const TitleContainer = styled.div`
   padding: 0 .5rem;
   gap: .5rem;
   width: 90%;
-  padding-top:3rem;
+  margin-top:3rem;
 
   h2{
     text-align: center;
