@@ -17,4 +17,15 @@ export const Menu = styled.ul`
     align-items: center;
     height: 100%;
 
+    li + li {
+        display: flex;
+        gap: .5rem;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            font-size: 1.5rem;
+        }
+    }
+
 `;

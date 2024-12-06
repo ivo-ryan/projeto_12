@@ -21,12 +21,9 @@ export const Detiong = ()=> {
             
             const items = movies.length;           
 
-            if (imgCurrent === items) {
+            if (imgCurrent === (items - 1)) {
                setImgCurrent(0);     
             }
-
-            console.log(imgCurrent);
-            
             
             const itemFilter = movies.filter(( _, index) => index === imgCurrent);
             setMovie(itemFilter);  

@@ -8,9 +8,6 @@ export const ContainerMovies = styled.div`
     background-attachment: fixed;
     background-position: center center;
     color: #fff;
-    a{
-        color: #fff;
-    }
 `;
 
 
@@ -51,6 +48,16 @@ export const Card = styled.div`
     @media (max-width: 1200px) {
         width: 20rem;
         height: 25rem;
+    }
+
+    @media (max-width: 500px) {
+        width: 18rem;
+        height: 20rem;
+    }
+
+    @media (max-width: 375px) {
+        width: 12rem;
+        height: 17rem;
     }
     `;
 

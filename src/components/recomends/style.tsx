@@ -11,7 +11,7 @@ export const SectionContainer = styled.section`
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
-    padding: 3rem 2rem ;
+    padding: 3rem 0 3rem 2rem ;
     color: #fff;
 
     h2{
@@ -64,10 +64,12 @@ export const ContainerCards = styled.div`
 export const CardContainer = styled.div`
         position: relative;
         flex: 0 0 auto; 
-        width: 25rem;
-        height: 30rem;
-        display: block;
+        width: 23rem;
+        height: 32rem;
+        display: flex;
+        align-items: center;
         border-radius: 1rem;
+        z-index: 3;
 `;
 
 export const Card = styled.div`
@@ -128,8 +130,8 @@ export const Ponts = styled.div`
     position: absolute;
     background-color: #FE688B;
     color: #fff;
-    top: -1rem;
-    right: 0;
+    top: .5rem;
+    right: -1rem;
     font-size: 2rem;
     padding: .5rem ;
     border-radius: 50%;

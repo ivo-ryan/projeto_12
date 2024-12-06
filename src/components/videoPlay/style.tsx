@@ -88,11 +88,11 @@ export const TitleContainer = styled.div`
 
 
 export const DescriptionContainer = styled.div`
-  background-color: #333;
+  background-color: #2C2A29;
   width: 70%;
   padding: 3rem;
   min-height: 10rem;
-  box-shadow: 0 .4rem 1rem #111;
+  border-radius: .5rem;
 
 
   p{

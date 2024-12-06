@@ -34,11 +34,15 @@ export const ImageContainer = styled.div`
 
 export const ContainerInfo = styled.div`
     width: 90%;
-    min-height: 35rem;
+    min-height: 10rem;
+    background-color: #2C2A29;
+    padding: 2rem;
+    border-radius: .8rem;
+    box-shadow: 0 .4rem 1rem #000;
     display: flex;
     gap: 1rem;
     flex-direction: column;
-    justify-content: flex-start;   
+    justify-content: center; 
 
     p{
         font-size: 2rem;
