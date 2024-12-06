@@ -15,6 +15,10 @@ export const SectionContainer = styled.section`
     flex-direction: column;
     gap: 2rem;
     padding: 2rem 0;
+
+    @media (max-width: 500px) {
+        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    }
 `;
 
 

@@ -11,6 +11,10 @@ export const SectionContainer = styled.section`
     background-size: cover;
     background-attachment: fixed;
     background-position: center center;
+
+    @media (max-width: 500px) {
+        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    }
 `;
 
 

@@ -8,6 +8,10 @@ export const ContainerMovies = styled.div`
     background-attachment: fixed;
     background-position: center center;
     color: #fff;
+
+    @media (max-width: 500px) {
+        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    }
 `;
 
 

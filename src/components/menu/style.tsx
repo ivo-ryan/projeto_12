@@ -29,3 +29,18 @@ export const Menu = styled.ul`
     }
 
 `;
+
+export const ArrowContainer = styled.div`
+    padding-top: 1rem ;
+
+    svg{
+        font-size: 1.8rem;
+        animation: back-arrow alternate 1s infinite;
+
+        @keyframes back-arrow {
+            to{
+                transform: translateX(-.5rem);
+            }
+        }
+    }
+`;
