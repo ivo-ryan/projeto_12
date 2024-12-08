@@ -34,8 +34,16 @@ export const ArrowContainer = styled.div`
     padding-top: 1rem ;
 
     svg{
+        cursor: pointer;
+        color: #42A5F5;
         font-size: 1.8rem;
+        transition: all .5s ease ;
         animation: back-arrow alternate 1s infinite;
+
+        &:hover{
+            color: #1E88E5;
+            transform: scale(1.1);
+        }
 
         @keyframes back-arrow {
             to{

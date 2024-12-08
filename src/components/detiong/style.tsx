@@ -39,7 +39,6 @@ export const ContainerImg = styled.div`
     overflow-y: hidden;
 
     img{
-        display: none;
         width: 100%;
         height: 100%;
         filter: grayscale(20%);

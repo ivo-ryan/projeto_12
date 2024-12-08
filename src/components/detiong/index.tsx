@@ -2,51 +2,48 @@ import * as S from './style';
 import { FaPlay } from 'react-icons/fa';
 import { UseApi } from '../UseApi/useApi';
 import $ from 'jquery';
-import {  useEffect, useState } from 'react';
-import { MoviesTypes } from '../../types/MoviesTypes';
+import { useState } from 'react';
+//import { MoviesTypes } from '../../types/MoviesTypes';
 import { Link } from 'react-router-dom';
 
 
 export const Detiong = ()=> {
 
     const [ imgCurrent, setImgCurrent ] = useState(0);
-    const [ movie , setMovie ] = useState<MoviesTypes[]>([])
 
     const { movies } = UseApi();
+
+    const initSlider = () => {
+        $('.container-img img').hide();
+        $('.container-img img').eq(0).show();
+    }
+
+    initSlider()
+
     
-   
-    useEffect(() => {
-
-        const initSlider = () => {
-            
-            const items = movies.length;           
-
-            if (imgCurrent === (items - 1)) {
-               setImgCurrent(0);     
-            }
-            
-            const itemFilter = movies.filter(( _, index) => index === imgCurrent);
-            setMovie(itemFilter);  
-        }
+    const changeSlide = () => {
+        const maxSlide = movies.length -1 ;
+        var curSlide = 0;
+        console.log(curSlide)
 
         setTimeout(() => {
-                
-                $('.container-img img').fadeOut(200);
+            $('.container-img img').eq(curSlide).fadeOut(1000);
+            curSlide += 1;
+
+            console.log(curSlide)
+
+            if( curSlide > maxSlide) {
+                curSlide = 0;
+                setImgCurrent(0);
+            }
+
+            $('.container-img img').eq(curSlide).fadeIn(2000);
+            setImgCurrent(curSlide); 
             
-                $('.span-container span').css('background', '#B3B3B3').css('transform', 'scale(1)');
+        }, 3000)
+    }
 
-                setImgCurrent(imgCurrent + 1);
-
-                $('.container-img img').eq(imgCurrent + 1).fadeIn(400);
-                
-                $('.span-container span').eq(imgCurrent +1 ).css('background', '#7acbeb').css('transform', 'scale(1.2)');
-        
-
-        }, 4000);
-        
-        initSlider();
-        
-    }, [imgCurrent]);
+    changeSlide()
 
 
 
@@ -65,13 +62,13 @@ export const Detiong = ()=> {
 
                 <S.MovieInfo>
                     <h2>
-                        {movie[0]?.name}
+                        {movies[imgCurrent]?.name}
                     </h2>
                     
                 </S.MovieInfo>
 
                 <S.ButtonContainer>
-                    <Link to={`/${movie[0]?.name}`}>
+                    <Link to={`/${movies[imgCurrent]?.name}`}>
                     <button><FaPlay/>Play</button>
                     </Link>
                 </S.ButtonContainer>
