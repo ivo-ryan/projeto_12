@@ -27,16 +27,20 @@ export const Detiong = ()=> {
 
   const initSlider = () => {
     $(".container-img img").eq(0).fadeIn();
+    $('.span-container span').eq(0).css('background', '#7acbeb').css('transform', 'scale(1.2)');
   };
 
   const changeSlide = () => {
     const maxSlide = movies.length - 1;
+
+    $('.span-container span').css('background', '#B3B3B3').css('transform', 'scale(1)');
 
     setImgCurrent((prevImgCurrent) => {
       const nextSlide = prevImgCurrent >= maxSlide ? 0 : prevImgCurrent + 1;
 
         $(".container-img img").eq(prevImgCurrent).fadeOut(1000, () => {
             $(".container-img img").eq(nextSlide).fadeIn(1000);
+            $('.span-container span').eq(nextSlide).css('background', '#7acbeb').css('transform', 'scale(1.2)').css('transition', 'all .5s ease');
          });
 
 

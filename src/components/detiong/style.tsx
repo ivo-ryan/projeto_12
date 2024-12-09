@@ -106,32 +106,50 @@ export const ButtonContainer = styled.div`
     left: 3rem;
     z-index: 2;
     width: 13rem;
-    height: 4rem;
-    bottom: 0;
+    height: 3rem;
 
-        button{
+    button {
         width: 100%;
-        background-color: #d00916;
+        padding: .5rem 2rem;
+        background-color: #d00916; 
         border: none;
-        font-weight: 400;
-        border-radius: 3rem;
-        font-size: 3rem;
-        letter-spacing: .3rem;
+        font-weight: 500; 
+        border-radius: 1.5rem; 
+        font-size: 2.5rem; 
+        letter-spacing: 0.2rem; 
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: .3rem;
-        transition: all .4s ease-in;
+        gap: 0.5rem; 
+        transition: all 0.3s ease-in-out; 
         cursor: pointer;
         color: #fff;
-
-        &:hover{
-            background-color: #F40612;
+       
+        
+        &:focus {
+            outline: none; 
+            box-shadow: 0 0 0.5rem #ff6a73;
         }
 
-        svg{
-            font-size: 2rem;
+      
+        &:hover {
+            background-color: #f1323f; 
+            transform: scale(1.05); 
+            box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.3); 
         }
+
+       
+        &:active {
+            transform: scale(0.97); 
+            background-color: #b00710; 
+        }
+
+        
+        svg {
+            font-size: 2.2rem; 
+            transition: transform 0.3s ease-in-out;
+        }
+
     }
 
     @media (max-width: 768px) {
