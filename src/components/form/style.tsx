@@ -71,6 +71,7 @@ export const FormContainer = styled.div`
 
     @media (max-width: 500px) {
         width: 90%;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
     

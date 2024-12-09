@@ -36,6 +36,10 @@ export const Container = styled.div`
         width: 80%;
     }
 
+    @media (max-width: 500px) {
+        width: 95%;
+    }
+
 `;
 
 export const ContainerImg = styled.div`
@@ -97,6 +101,10 @@ export const MovieInfo = styled.div`
 
     @media (max-width: 500px) {
         top: 1rem;
+
+        h2{
+            letter-spacing: .5rem;
+        }
     }
 `;
 
@@ -156,12 +164,15 @@ export const ButtonContainer = styled.div`
        button{
             width: 10rem;
             font-size: 1.8rem;
-            height: 3rem;
 
             svg{
                 font-size: 1.5rem;
             }
         }
+    }
+
+    @media (max-width: 500px) {
+        bottom: 3rem;
     }
 `;
 
