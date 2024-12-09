@@ -12,6 +12,13 @@ export const SectionContainer = styled.section`
     background-attachment: fixed;
     background-position: center center;
 
+    h2,p{
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
     @media (max-width: 500px) {
         background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
     }

@@ -14,6 +14,13 @@ export const SectionContainer = styled.section`
     z-index: 1;
     overflow-y: hidden;
 
+    h2,button{
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
     @media (max-width: 768px) {
         height: 25rem;
     }
@@ -98,12 +105,9 @@ export const ButtonContainer = styled.div`
     bottom: 2rem;
     left: 3rem;
     z-index: 2;
-
-    a{
-        width: 13rem;
-        height: 4rem;
-        position: absolute;
-        bottom: 0;
+    width: 13rem;
+    height: 4rem;
+    bottom: 0;
 
         button{
         width: 100%;
@@ -130,10 +134,8 @@ export const ButtonContainer = styled.div`
         }
     }
 
-    }
-
     @media (max-width: 768px) {
-       a button{
+       button{
             width: 10rem;
             font-size: 1.8rem;
             height: 3rem;

@@ -13,6 +13,10 @@ export const SectionContainer = styled.section`
     background-position: center center;
     padding: 3rem 0 3rem 2rem ;
     color: #fff;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     h2{
         font-size: 2rem;

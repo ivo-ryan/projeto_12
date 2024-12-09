@@ -3,52 +3,50 @@ import { FaPlay } from 'react-icons/fa';
 import { UseApi } from '../UseApi/useApi';
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
-//import { MoviesTypes } from '../../types/MoviesTypes';
-import { Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 export const Detiong = ()=> {
 
-  const [imgCurrent, setImgCurrent] = useState(0); // Gerencia o índice do slide atual
-  const { movies } = UseApi(); // Recupera os filmes (ou imagens)
-  console.log(imgCurrent);
+  const [imgCurrent, setImgCurrent] = useState(0);
+  const { movies } = UseApi();
+  const location = useLocation();
+  const navigate = useNavigate();
   
 
   useEffect(() => {
-    if (movies.length === 0) return; // Garante que existam imagens
-
-    // Inicializa o slider ao carregar o componente
+    if (movies.length === 0) return;
     initSlider();
 
-    // Configura o temporizador para alternar os slides
     const interval = setInterval(() => {
       changeSlide();
     }, 3000);
 
-    // Limpa o intervalo ao desmontar o componente
     return () => clearInterval(interval);
-  }, [movies]); // Executa quando `movies` mudar
+  }, [movies]);
 
   const initSlider = () => {
-    $(".container-img img").eq(0).show(); // Mostra a primeira imagem
+    $(".container-img img").eq(0).fadeIn();
   };
 
   const changeSlide = () => {
     const maxSlide = movies.length - 1;
 
-    // Atualiza o estado de `imgCurrent` de forma segura
     setImgCurrent((prevImgCurrent) => {
       const nextSlide = prevImgCurrent >= maxSlide ? 0 : prevImgCurrent + 1;
 
         $(".container-img img").eq(prevImgCurrent).fadeOut(1000, () => {
-        // Exibe o próximo slide somente após o fadeOut terminar
             $(".container-img img").eq(nextSlide).fadeIn(1000);
          });
 
 
-      return nextSlide; // Atualiza o índice do próximo slide
+      return nextSlide;
     });
   };
+
+  const handleNavigate = () => {
+    navigate(`/${movies[imgCurrent]?.name}`, {state: {userName: location.state?.userName}});
+  }
 
     return(
         <S.SectionContainer>
@@ -67,10 +65,8 @@ export const Detiong = ()=> {
                     
                 </S.MovieInfo>
 
-                <S.ButtonContainer>
-                    <Link to={`/${movies[imgCurrent]?.name}`}>
-                    <button><FaPlay/>Play</button>
-                    </Link>
+                <S.ButtonContainer>                 
+                    <button onClick={() => handleNavigate()}><FaPlay/>Play</button>      
                 </S.ButtonContainer>
 
                 <S.ContainerIndex className='span-container'>

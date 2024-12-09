@@ -12,6 +12,13 @@ export const SectionContainer = styled.section`
     gap: 2rem;
     color: #fff;
     box-shadow: 0 .2rem 1.5rem #222;
+
+    h2,span{
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
 `;
 
 export const ImageContainer = styled.div`

@@ -16,6 +16,13 @@ export const SectionContainer = styled.section`
     gap: 2rem;
     padding: 2rem 0;
 
+    h2{
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
     @media (max-width: 500px) {
         background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
     }
