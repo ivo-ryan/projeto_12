@@ -39,6 +39,7 @@ export const ContainerImg = styled.div`
     overflow-y: hidden;
 
     img{
+        display: none;
         width: 100%;
         height: 100%;
         filter: grayscale(20%);
@@ -151,7 +152,6 @@ export const ContainerIndex = styled.div`
         z-index: 4;
         bottom: 2rem;
         left: 35%;
-        width: 100%;
         gap: 2rem;
         span{
             display: inline-block;

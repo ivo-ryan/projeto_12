@@ -2,61 +2,61 @@ import * as S from './style';
 import { FaPlay } from 'react-icons/fa';
 import { UseApi } from '../UseApi/useApi';
 import $ from 'jquery';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 //import { MoviesTypes } from '../../types/MoviesTypes';
 import { Link } from 'react-router-dom';
 
 
 export const Detiong = ()=> {
 
-    const [ imgCurrent, setImgCurrent ] = useState(0);
+  const [imgCurrent, setImgCurrent] = useState(0); // Gerencia o índice do slide atual
+  const { movies } = UseApi(); // Recupera os filmes (ou imagens)
+  console.log(imgCurrent);
+  
 
-    const { movies } = UseApi();
+  useEffect(() => {
+    if (movies.length === 0) return; // Garante que existam imagens
 
-    const initSlider = () => {
-        $('.container-img img').hide();
-        $('.container-img img').eq(0).show();
-    }
+    // Inicializa o slider ao carregar o componente
+    initSlider();
 
-    initSlider()
+    // Configura o temporizador para alternar os slides
+    const interval = setInterval(() => {
+      changeSlide();
+    }, 3000);
 
-    
-    const changeSlide = () => {
-        const maxSlide = movies.length -1 ;
-        var curSlide = 0;
-        console.log(curSlide)
+    // Limpa o intervalo ao desmontar o componente
+    return () => clearInterval(interval);
+  }, [movies]); // Executa quando `movies` mudar
 
-        setTimeout(() => {
-            $('.container-img img').eq(curSlide).fadeOut(1000);
-            curSlide += 1;
+  const initSlider = () => {
+    $(".container-img img").eq(0).show(); // Mostra a primeira imagem
+  };
 
-            console.log(curSlide)
+  const changeSlide = () => {
+    const maxSlide = movies.length - 1;
 
-            if( curSlide > maxSlide) {
-                curSlide = 0;
-                setImgCurrent(0);
-            }
+    // Atualiza o estado de `imgCurrent` de forma segura
+    setImgCurrent((prevImgCurrent) => {
+      const nextSlide = prevImgCurrent >= maxSlide ? 0 : prevImgCurrent + 1;
 
-            $('.container-img img').eq(curSlide).fadeIn(2000);
-            setImgCurrent(curSlide); 
-            
-        }, 3000)
-    }
-
-    changeSlide()
+        $(".container-img img").eq(prevImgCurrent).fadeOut(1000, () => {
+        // Exibe o próximo slide somente após o fadeOut terminar
+            $(".container-img img").eq(nextSlide).fadeIn(1000);
+         });
 
 
+      return nextSlide; // Atualiza o índice do próximo slide
+    });
+  };
 
     return(
         <S.SectionContainer>
             <S.Container>
-                <S.ContainerImg className='container-img'>
-
-                    {movies.map((item, index) => {
-                        return(
-                            <img src={item.banner_large} alt={item.name}  key={index}/>
-                        )
-                    })}
+                <S.ContainerImg className="container-img">
+                    {movies.map((movie, index) => (
+                        <img key={index} src={movie.banner_large} alt={`Slide ${index}`} />
+                    ))}
                 </S.ContainerImg>
                 <S.Overlay></S.Overlay>
 
