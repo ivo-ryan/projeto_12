@@ -14,7 +14,7 @@ type FormDataProps = z.infer<typeof schema>;
 
 
 export const Form = () => {
-    const [ autenticated, setAutenticated  ] = useState(false);
+    const [ autenticated, setAutenticated  ] = useState<boolean>(false);
 
     const { register, handleSubmit , formState: {errors} , reset} = useForm<FormDataProps>({
         criteriaMode: 'all',
@@ -35,11 +35,7 @@ export const Form = () => {
         const data = async () => {
             const req = await axios.post('https://movie-api-cwkr.onrender.com/user', {
                 user: e.user,
-            })
-
-            console.log(req.status);
-            console.log(e);
-            
+            });
             
             reset();
 
@@ -47,7 +43,7 @@ export const Form = () => {
                 return setAutenticated(true);
             };
             
-        }
+        };
 
         data();
         

@@ -84,4 +84,4 @@ export const Detiong = ()=> {
             </S.Container>
         </S.SectionContainer>
     )
-}
+};
