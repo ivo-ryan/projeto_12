@@ -7,8 +7,8 @@ describe("<Form/>", () => {
     it('should render in the document', async () => {
         render(<Form/>);
 
-        const inputUser = screen.getAllByRole('textbox', {name: 'user'});
-        const inputEmail = screen.getByRole('texbox', {name: 'email'});
+        const inputUser = screen.getByPlaceholderText(/user/i);
+        const inputEmail = screen.getByPlaceholderText(/email/i);
 
         expect(inputUser).toBeVisible();
         expect(inputEmail).toBeVisible();
