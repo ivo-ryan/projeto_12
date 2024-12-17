@@ -51,8 +51,8 @@ export const UserAuthentication = ({setAutenticated}:AutenticatedProps) => {
 
 
     const handleSubmitForm = (e:FormProps) => {       
-        setGetUser(e)
-    }
+        setGetUser(e);
+    };
 
     return(
         <S.FormContainer>
