@@ -2,7 +2,6 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { it, describe, expect, vitest } from 'vitest';
 import { FormComponent } from './formComponent';
 import '@testing-library/jest-dom';
-import { act } from 'react';
 import userEvent from '@testing-library/user-event';
 
 const handleFormSubmit = vitest.fn();
@@ -24,7 +23,7 @@ describe("<Form/>", () => {
     it('should show error message', async () => {
         render(<FormComponent handleFormSubmit={handleFormSubmit}/>);
         const buttonSubmit  = screen.getByRole('button', {name: /cadastrar/i});
-        
+
         fireEvent.click(buttonSubmit);
 
         await waitFor(() => {
