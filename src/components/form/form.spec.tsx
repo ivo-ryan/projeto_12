@@ -24,10 +24,8 @@ describe("<Form/>", () => {
     it('should show error message', async () => {
         render(<FormComponent handleFormSubmit={handleFormSubmit}/>);
         const buttonSubmit  = screen.getByRole('button', {name: /cadastrar/i});
-
-        act(() => {
-            fireEvent.click(buttonSubmit);
-        });
+        
+        fireEvent.click(buttonSubmit);
 
         await waitFor(() => {
             expect(screen.getByText(/Digite um email válido/i)).toBeVisible();
