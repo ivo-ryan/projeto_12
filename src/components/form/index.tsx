@@ -1,26 +1,13 @@
-import { zodResolver } from "@hookform/resolvers/zod/src/zod.js";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import * as S from './style';
 import { useState } from "react";
 import { UserAuthentication } from "../userAuthentication";
 import axios from "axios";
-
-const schema = z.object({
-    email: z.string().email('Digite um email válido'),
-    user: z.string().min(5, 'Nome de usuário inválido!')});
-
-type FormDataProps = z.infer<typeof schema>;
-
+import { FormComponent, FormDataProps } from "./formComponent";
 
 export const Form = () => {
     const [ autenticated, setAutenticated  ] = useState<boolean>(false);
-
-    const { register, handleSubmit , formState: {errors} , reset} = useForm<FormDataProps>({
-        criteriaMode: 'all',
-        mode: 'all',
-        resolver: zodResolver(schema),
-    });
+    const { reset } = useForm();
 
     const handleClickAutenticated = () => {
         if (autenticated === false) {
@@ -55,13 +42,7 @@ export const Form = () => {
            <S.FormContainer>
            { autenticated === false ? ( <> 
                 <h2>Cadastre - se </h2>
-                <form onSubmit={handleSubmit(handleFormSubmit)}>
-                    <S.Input type="text" {...register("user")} placeholder="User" erro={!!errors.user?.message}/>
-                    {errors && <S.ErroMessage>{errors.user?.message}</S.ErroMessage>}
-                    <S.Input type="text" {...register('email')} placeholder="Email"  erro={!!errors.email?.message}/>
-                    {errors && <S.ErroMessage>{errors.email?.message}</S.ErroMessage>}
-                    <S.Button type="submit">Enviar</S.Button>
-                </form>
+                <FormComponent handleFormSubmit={handleFormSubmit}/>
 
                 <S.IsAutenticated>
                     <p  onClick={() => handleClickAutenticated()}>Já sou cadastrado!</p>
