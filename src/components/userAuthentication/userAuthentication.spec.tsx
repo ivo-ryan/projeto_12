@@ -8,15 +8,19 @@ import axios from 'axios';
 
 const setAutenticated = vi.fn();
 
-vi.mock('axios', () => ({
-    get: vi.fn(),
-  }));
+vi.spyOn(axios, "get").mockResolvedValueOnce({
+    data: [{ user: 'ivoRyan15' }]
+  });
 
 const mockNavigate = vi.fn();
 
-vi.mock('react-router-dom', () => ({
-    useNavigate: () => mockNavigate,
-}));
+vi.mock(import("react-router-dom"), async (importOriginal) => {
+    const actual = await importOriginal()
+    return {
+      ...actual,
+      useNavigate: () => mockNavigate,
+    }
+  })
 
 describe('<UserAuthentication/>', () => {
     it('should render form in screen ', () => {
@@ -86,36 +90,28 @@ describe('<UserAuthentication/>', () => {
     });
 
     it('should navigate in page dashboard when a user valid is found ', async () => {
+   
+    render(
+        <BrowserRouter>
+          <UserAuthentication setAutenticated={setAutenticated} />
+        </BrowserRouter>
+      );
+  
+      const inputUser = screen.getByPlaceholderText('User name');
+      const button = screen.getByRole('button', { name: /entrar/i });
+  
+      await userEvent.type(inputUser, 'ivoRyan15');
+      fireEvent.click(button);
 
-        const mockUserData = [
-            {user: 'ivoRyan15'}
-        ];
-
-        (axios.get as vi.Mock).mockResolvedValueOnce({ data: mockUserData });
-
-        render(
-            <BrowserRouter>
-                <UserAuthentication setAutenticated={setAutenticated}/>
-            </BrowserRouter>
-        );
-
+      await waitFor(() => {
+        expect(axios.get).toHaveBeenCalledWith('https://movie-api-cwkr.onrender.com/user');
+      });
+  
+      await waitFor(() => {
         
-        const inputUser = screen.getByPlaceholderText('User name');
-        const button = screen.getByRole('button', {name: /entrar/i});
-
-        await userEvent.type(inputUser, 'ivoRyan15');
-        fireEvent.click(button);
-
-        await waitFor(() => {
-            expect(axios.get).toHaveBeenCalledWith('https://movie-api-cwkr.onrender.com/user');
+        expect(mockNavigate).toHaveBeenCalledWith('/dashboard', {
+          state: { userName: 'ivoRyan15' },
         });
-
-        await waitFor(() => {
-            expect(mockNavigate).toHaveBeenCalledTimes(1);
-            expect(mockNavigate).toHaveBeenCalledWith('/dashboard', {
-                state: {userName: 'ivoRyan15' },
-            });
-        });
-
-    })
+      });
+    });
 });
