@@ -55,7 +55,7 @@ export const Detiong = ()=> {
     return(
         <S.SectionContainer>
             <S.Container>
-                <S.ContainerImg className="container-img">
+                <S.ContainerImg className="container-img" >
                     {movies.map((movie, index) => (
                         <img key={index} src={movie.banner_large} alt={`Slide ${index}`} />
                     ))}
@@ -69,11 +69,11 @@ export const Detiong = ()=> {
                     
                 </S.MovieInfo>
 
-                <S.ButtonContainer>                 
+                <S.ButtonContainer >                 
                     <button onClick={() => handleNavigate()}><FaPlay/>Play</button>      
                 </S.ButtonContainer>
 
-                <S.ContainerIndex className='span-container'>
+                <S.ContainerIndex className='span-container' >
                     {movies.map((_, index) => {
                         return(
                                 <span key={index} ></span>

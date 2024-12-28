@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { UserAuthentication } from '.';
 import '@testing-library/jest-dom';
 import { BrowserRouter } from 'react-router-dom';
@@ -8,9 +8,14 @@ import axios from 'axios';
 
 const setAutenticated = vi.fn();
 
-vi.spyOn(axios, "get").mockResolvedValueOnce({
-    data: [{ user: 'ivoRyan15' }]
-  });
+vi.mock('axios', () => {
+  return {
+    __esModule: true,
+    default: {
+      get: vi.fn().mockImplementation(() => Promise.resolve({ data: [{ user: 'ivoRyan15' }] })),
+    },
+  };
+});
 
 const mockNavigate = vi.fn();
 
@@ -20,7 +25,11 @@ vi.mock(import("react-router-dom"), async (importOriginal) => {
       ...actual,
       useNavigate: () => mockNavigate,
     }
-  })
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
 
 describe('<UserAuthentication/>', () => {
     it('should render form in screen ', () => {
@@ -96,7 +105,7 @@ describe('<UserAuthentication/>', () => {
           <UserAuthentication setAutenticated={setAutenticated} />
         </BrowserRouter>
       );
-  
+
       const inputUser = screen.getByPlaceholderText('User name');
       const button = screen.getByRole('button', { name: /entrar/i });
   
@@ -108,7 +117,7 @@ describe('<UserAuthentication/>', () => {
       });
   
       await waitFor(() => {
-        
+        expect(mockNavigate).toHaveBeenCalledTimes(1);
         expect(mockNavigate).toHaveBeenCalledWith('/dashboard', {
           state: { userName: 'ivoRyan15' },
         });
