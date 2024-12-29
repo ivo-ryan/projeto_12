@@ -1,18 +1,33 @@
-import { describe, it , expect, vi  } from 'vitest';
+import { describe, it , expect, vi, afterEach  } from 'vitest';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Detiong } from '.';
 import { BrowserRouter } from 'react-router-dom';
 
+const mockMovies = [
+  {id: "1" ,name: "Movie 1", banner_large: 'image1.jpg'},
+  {id: "2", name: "Movie 2", banner_large: 'image2.jpg'}
+];
+
+const mockNavigate = vi.fn();
+
+vi.mock("react-router-dom", async () => {
+  const actual = await import("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+    useLocation: () => ({ state: { userName: 'TestUser' } }),
+  };
+});
+
+
+afterEach(() => {
+  vi.clearAllMocks();
+});
 
 describe('<Detiong/>', () => {
 
     it('should render all components in screen', () => {
-        render(
-          <BrowserRouter>
-            <Detiong/>
-          </BrowserRouter>  
-        );
 
         const { container } = render(
             <BrowserRouter>
@@ -20,21 +35,15 @@ describe('<Detiong/>', () => {
             </BrowserRouter>  
           );
 
-        const containerImg = container.querySelector('container-img');
-        const spanContainer = container.querySelector('span-container');
-        const button = screen.getByRole('button', {name: /play/i});
+        const containerImg = container.querySelector('.container-img');
+        const spanContainer = container.querySelector('.span-container');
 
         expect(containerImg).toBeVisible();
         expect(spanContainer).toBeVisible();
-        expect(button).toBeVisible();
 
     });
 
     it('should display movies correctly when data is provided', () => {
-        const mockMovies = [
-            {name: "Movie 1", banner_large: 'image1.jpg'},
-            {name: "Movie 2", banner_large: 'image2.jpg'}
-        ];
 
         vi.mock('../UseApi/useApi', () => ({
             UseApi: () => ({movies: mockMovies})
@@ -42,17 +51,41 @@ describe('<Detiong/>', () => {
 
         render(
             <BrowserRouter>
-              <Detiong/>
+              <Detiong />
             </BrowserRouter>  
           );
 
         const titleMovieName = screen.getByText(/movie 1/i);
-        const image = screen.getByAltText(/slide 1/i);
+        const image = screen.getByAltText(/Slide 0/i);
+        const image2 = screen.getByAltText(/slide 1/i);
 
         expect(titleMovieName).toBeVisible();
-        expect(image).toHaveAttribute('scr', 'image1.jpg');
+        expect(image).toHaveAttribute('src', 'image1.jpg');
+        expect(image2).toHaveAttribute('src', 'image2.jpg');
 
     });
 
+    it('should navigate to the page correct when Play is clicked', async () => {
+
+        vi.mock('../UseApi/useApi', () => ({
+          UseApi: () => mockMovies
+        }));
+
+        render(
+          <BrowserRouter>
+            <Detiong/>
+          </BrowserRouter>
+         );
+
+        const button = screen.getByText('Play');
+
+        fireEvent.click(button);
+
+        expect(mockNavigate).toHaveBeenCalledTimes(1);
+        expect(mockNavigate).toHaveBeenCalledWith('/Movie 1',{
+          state: 'TestUser'
+        })
+        expect(button).toBeVisible();
+    });
         
 })
