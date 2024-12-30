@@ -57,7 +57,7 @@ export const Detiong = ()=> {
             <S.Container>
                 <S.ContainerImg className="container-img" >
                     {movies.map((movie, index) => (
-                        <img key={index} src={movie.banner_large} alt={`Slide ${index}`} />
+                        <img key={index} src={movie.banner_large} alt={`Slide ${index}`}  className={index === imgCurrent ?'active': ''}/>
                     ))}
                 </S.ContainerImg>
                 <S.Overlay></S.Overlay>

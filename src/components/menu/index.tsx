@@ -25,7 +25,7 @@ export const Menu = () => {
             <S.Menu>
                 <li><h2 >Movie</h2>
                     {url === `/dashboard` ? null : (
-                        <S.ArrowContainer>
+                        <S.ArrowContainer  aria-label='button'>
                             <FaArrowLeft onClick={() => handleClickNavigation()}/>
                         </S.ArrowContainer>
                     )}

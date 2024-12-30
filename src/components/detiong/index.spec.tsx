@@ -1,6 +1,6 @@
 import { describe, it , expect, vi, afterEach  } from 'vitest';
 import '@testing-library/jest-dom';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Detiong } from '.';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -68,7 +68,7 @@ describe('<Detiong/>', () => {
     it('should navigate to the page correct when Play is clicked', async () => {
 
         vi.mock('../UseApi/useApi', () => ({
-          UseApi: () => mockMovies
+          UseApi: () =>({movies: mockMovies})
         }));
 
         render(
@@ -83,9 +83,48 @@ describe('<Detiong/>', () => {
 
         expect(mockNavigate).toHaveBeenCalledTimes(1);
         expect(mockNavigate).toHaveBeenCalledWith('/Movie 1',{
-          state: 'TestUser'
-        })
+          state: { userName: 'TestUser' }
+        });
         expect(button).toBeVisible();
+    });
+
+    it('should automatically switch slides at the correctly interval', async () => {
+      vi.mock('../UseApi/useApi', () => ({
+        UseApi: () => ({movies: mockMovies})
+      }));
+
+      render(
+        <BrowserRouter>
+          <Detiong/>
+        </BrowserRouter>
+      );
+
+      const slide1 = screen.getByAltText('Slide 0');
+      const slide2 = screen.getByAltText('Slide 1');
+
+      expect(slide1).toHaveClass('active');
+      expect(slide2).not.toHaveClass('active');
+
+      await waitFor(() => {
+        expect(slide1).not.toHaveClass('active');
+        expect(slide2).toHaveClass('active');
+      },{timeout: 3000})
+
+    });
+
+    it('should clear the interval when the component is unmounted', async () => {
+      const clearInterval = vi.spyOn(window, 'clearInterval');
+
+      const { unmount } = render(
+        <BrowserRouter>
+          <Detiong/>
+        </BrowserRouter>
+      );
+
+      unmount();
+
+      expect(clearInterval).toBeCalledTimes(1);
+
     });
         
 })
