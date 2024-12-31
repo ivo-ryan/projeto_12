@@ -24,7 +24,7 @@ export const IndInfo = () => {
             </S.ContainerTitle>
 
             <S.ImageContainer>
-                <img src={movie[0]?.banner_large} alt="" />
+                <img src={movie[0]?.banner_large} alt={movie[0].name} />
                 <S.InfoStars>
                     <span>
                        {movie[0]?.nota}
@@ -49,7 +49,7 @@ export const IndInfo = () => {
                     </p>
                 </S.InfoDetails>
 
-                <S.PlayContainer onClick={() => handleClickNavigate()}>
+                <S.PlayContainer onClick={() => handleClickNavigate()} aria-label='button'>
                     <h2>Play</h2><FaPlayCircle/>
                 </S.PlayContainer>
         
