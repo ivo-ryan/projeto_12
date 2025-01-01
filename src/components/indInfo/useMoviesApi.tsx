@@ -3,7 +3,6 @@ import { MoviesTypes } from "../../types/MoviesTypes";
 import axios from "axios";
 import { useParams } from "react-router";
 
-
 export const UseMoviesApi = () => {
     const [ movie, setMovie ] = useState<MoviesTypes[]>([]);
     
