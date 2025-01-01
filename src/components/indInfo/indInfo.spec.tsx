@@ -17,11 +17,15 @@ const movie = [
     }
 ];
 
-vi.mock('react-router', () => ({
-    useLocation: () => ({ state: { userName: 'teste15' } }),
-    useParams: () => ({ name: 'movie' }),
-    useNavigate: () => mockNavigate,
-}));
+vi.mock("react-router-dom", async () => {
+    const actual = await import("react-router-dom");
+    return {
+      ...actual,
+      useNavigate: () => mockNavigate,
+      useLocation: () => ({ state: { userName: 'teste15' } }),
+      useParams: () => ({name: 'movie'})
+    };
+  });
 
 afterEach(() => {
     vi.clearAllMocks();
@@ -29,6 +33,11 @@ afterEach(() => {
 
 describe('<IndInfo/>', () => {
     it('should render components in screen', () => {
+
+        vi.mock('./useMoviesApi', () => ({
+            UseMoviesApi: () => ({ movie: movie }) 
+        }));
+
         render(
             <BrowserRouter>
                 <IndInfo/>
@@ -73,28 +82,26 @@ describe('<IndInfo/>', () => {
         expect(sinopse).toBeVisible();
         expect(year).toBeVisible();
         expect(duration).toBeVisible();
+        
       
     });
 
     it('should navigate to page correct', () => {
-        vi.mock('./useMoviesApi', () => ({
-            UseMoviesApi: () => ({movie: movie}) 
-         }));
- 
+
          render(
              <BrowserRouter>
                  <IndInfo/>
              </BrowserRouter>
          );
 
-         const button = screen.getByLabelText('button');
+         const button = screen.getByLabelText('play');
 
          fireEvent.click(button);
 
-         expect(mockNavigate).toHaveBeenCalledWith('/movie1/play', {
-            state: {userName: 'teste15'}
-         });
          expect(mockNavigate).toHaveBeenCalledTimes(1);
+         expect(mockNavigate).toHaveBeenCalledWith('/movie/play', {
+            state: { userName: 'teste15' }
+         });
     })
 })
 

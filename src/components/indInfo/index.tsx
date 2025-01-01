@@ -49,7 +49,7 @@ export const IndInfo = () => {
                     </p>
                 </S.InfoDetails>
 
-                <S.PlayContainer onClick={() => handleClickNavigate()} aria-label='button'>
+                <S.PlayContainer onClick={() => handleClickNavigate()} aria-label='play'>
                     <h2>Play</h2><FaPlayCircle/>
                 </S.PlayContainer>
         
