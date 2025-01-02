@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Movie App
+<br/>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um aplicativo de filmes desenvolvido com React, que consome uma API para exibir informações detalhadas sobre filmes, permite a navegação entre diferentes páginas e possui testes automatizados para garantir a qualidade do código.
+<br/>
 
-Currently, two official plugins are available:
+## ⚡Funcionalidades
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Listagem de filmes:** Exibe informações como título, imagem, descrição, ano de lançamento, duração e nota. 
+- **Detalhes do filme:** Apresenta dados detalhados ao clicar em um filme.
+- **Reprodução de vídeos:** Permite navegar para a página de reprodução.
+- **Navegação segura:** Uso de useNavigate do React Router com estados de navegação.
+- **Estilização responsiva:** Adaptação visual para diferentes tamanhos de tela.
+- **Testes automatizados:** Cobertura de testes utilizando Vitest e Testing Library.
+  <br/>
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🔧Tecnologias Utilizadas
+<br/>
 
-- Configure the top-level `parserOptions` property like this:
+- **Frontend:** React, React Router, react-icons
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Estilização:** CSS Modules
+
+- **Gerenciamento de estado:** useState, useEffect
+
+- **Testes:** Vitest, Testing Library
+
+- **API:** Axios para consumo de dados
+<br/>
+
+## 📑 Estrutura do Projeto
+<br/>
+
 ```
+src/
+├── components/
+│   ├── menu/
+│   ├── indInfo/
+│   ├── videoPlay/
+├── styles/
+├── tests/
+├── types/
+└── utils/
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
