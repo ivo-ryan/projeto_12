@@ -198,7 +198,6 @@ export const ContainerIndex = styled.div`
         }
 
         @media (max-width: 550px) {
-            width: 70%;
             gap: 1rem;
             bottom: 1rem;
             left: 20%;
