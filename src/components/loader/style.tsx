@@ -14,8 +14,8 @@ export const LoaderContainer = styled.div`
 
             @keyframes rotateSpinner {
                 to{
-                    transform: rotateZ(360deg)
-                }
-            }
-        }
+                    transform: rotateZ(360deg);
+                };
+            };
+        };
 `;
