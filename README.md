@@ -4,6 +4,10 @@
 Este projeto é um aplicativo de filmes desenvolvido com React, que consome uma API para exibir informações detalhadas sobre filmes, permite a navegação entre diferentes páginas e possui testes automatizados para garantir a qualidade do código.
 <br/>
 
+## 🎥 Demonstração
+
+
+
 ## ⚡Funcionalidades
 <br/>
 
@@ -30,19 +34,34 @@ Este projeto é um aplicativo de filmes desenvolvido com React, que consome uma 
 - **API:** Axios para consumo de dados
 <br/>
 
-## 📑 Estrutura do Projeto
+
+## 💧 Configuração do Ambiente
 <br/>
 
+**1. Clonar o Repositório**
 ```
-src/
-├── components/
-│   ├── menu/
-│   ├── indInfo/
-│   ├── videoPlay/
-├── styles/
-├── tests/
-├── types/
-└── utils/
+git clone https://github.com/ivo-ryan/projeto_12
+```
 
+**2. Instalar Dependências**
+```
+npm install
+```
+**3. Executar o Projeto**
+```
+npm run dev
+```
+**4. Rodar os Testes**
 
 ```
+npm test
+```
+
+## 🔗 Contato
+<br/>
+- Email: ivoryan999@gmail.com
+
+- LinkedIn: Seu Perfil
+
+- GitHub: https://github.com/ivo-ryan/projeto_12
+
