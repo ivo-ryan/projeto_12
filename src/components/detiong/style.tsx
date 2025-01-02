@@ -36,8 +36,8 @@ export const Container = styled.div`
         width: 80%;
     }
 
-    @media (max-width: 500px) {
-        width: 95%;
+    @media (max-width: 550px) {
+        width: 100%;
     }
 
 `;
@@ -104,7 +104,7 @@ export const MovieInfo = styled.div`
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
         top: 1rem;
 
         h2{
@@ -176,7 +176,7 @@ export const ButtonContainer = styled.div`
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 550px) {
         bottom: 3rem;
     }
 `;
@@ -197,7 +197,7 @@ export const ContainerIndex = styled.div`
             background-color:#B3B3B3 ;
         }
 
-        @media (max-width: 500px) {
+        @media (max-width: 550px) {
             width: 70%;
             gap: 1rem;
             bottom: 1rem;
