@@ -16,9 +16,10 @@ export const MoviesList = () => {
 
     return(
         <S.ContainerMovies>  
+            
+        <S.BackgroundContainer/>
         
         <S.SectionContainer>
-
             <h2>
                Movies
             </h2>
@@ -28,7 +29,7 @@ export const MoviesList = () => {
             isLoading === true ? <Loader/> :
                 
             <S.CardContainer>
-
+           
             {movies.map((movie, index) => {
                 return(
                     <S.Card key={index} onClick={() => handleClickNavigation(movie.name)}>

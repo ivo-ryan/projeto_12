@@ -2,11 +2,6 @@ import styled from 'styled-components';
 
 export const ContainerMovies = styled.div`
     padding-bottom: 2rem;
-    background-image: url('https://wallpapercave.com/wp/wp4951502.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
     color: #fff;
     user-select: none;
     -webkit-user-select: none;
@@ -14,6 +9,22 @@ export const ContainerMovies = styled.div`
     -ms-user-select: none;
     height: 100%;
     width: 100%;
+    position: relative;
+
+    `;
+
+export const BackgroundContainer = styled.div`
+    background-image: url('https://wallpapercave.com/wp/wp4951502.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 
     @media (max-width: 768px) {
         background-image: url('https://e1.pxfuel.com/desktop-wallpaper/76/356/desktop-wallpaper-ken-kaneki-phone.jpg') ;
