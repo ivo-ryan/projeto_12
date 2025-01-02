@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const SectionContainer = styled.section`
     position: relative;
-    background-color: #3F3D3C;
+    background-color: #3f3d3c;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,7 @@ export const SectionContainer = styled.section`
     gap: 2rem;
     color: #fff;
     box-shadow: 0 .2rem 1.5rem #222;
+    
 
     h2,span{
         user-select: none;
@@ -150,7 +151,7 @@ export const PlayContainer = styled.div`
     }
 
     &:hover{
-        background-color: rgba(255, 255, 255, 0.711) ;
+        background-color: rgba(255, 255, 255, 8) ;
         box-shadow: 0 0 1rem #d00916;
         transform: scale(1.1);
         h2{

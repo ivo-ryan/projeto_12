@@ -6,16 +6,21 @@ import { useParams } from "react-router";
 
 export const UseMoviesApi = () => {
     const [ moviesCurr, setMoviesCurr ] = useState<MoviesTypes[]>([]);
+    const [ isLoading, setIsLoading ] = useState<boolean>(false);
     
     const { name } = useParams();
 
     useEffect(() => {
         const data = async () => {
+
+            setIsLoading(true);
+
             const req = await axios.get('https://movie-api-cwkr.onrender.com/filmes');
             const res = req.data;
             const filterRes = res.filter((item:MoviesTypes) => Number(item.nota) > 8.00 );
-            const filterCurrent = filterRes.filter((item:MoviesTypes) => item.name !== name)
+            const filterCurrent = filterRes.filter((item:MoviesTypes) => item.name !== name);
 
+            setIsLoading(false);
             setMoviesCurr(filterCurrent);
         }
 
@@ -23,6 +28,7 @@ export const UseMoviesApi = () => {
     }, [name]);
 
     return{
-        moviesCurr
+        moviesCurr,
+        isLoading
     }
 }

@@ -2,12 +2,13 @@ import * as S from './style';
 import { FaPlay} from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UseApi } from '../UseApi/useApi';
+import { Loader } from '../loader';
 
 export const MoviesList = () => {
    
-    const { movies } = UseApi();
+    const { movies, isLoading } = UseApi();
     const location = useLocation();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleClickNavigation = (name:string) => {
         navigate(`/${name}`, {state: { userName: location.state?.userName }})
@@ -22,6 +23,10 @@ export const MoviesList = () => {
                Movies
             </h2>
 
+            {
+                
+            isLoading === true ? <Loader/> :
+                
             <S.CardContainer>
 
             {movies.map((movie, index) => {
@@ -40,11 +45,11 @@ export const MoviesList = () => {
     
                     </S.Card>
                 )
-            })}
-
-           
+            })}    
 
             </S.CardContainer>
+
+            }
 
         </S.SectionContainer>
         

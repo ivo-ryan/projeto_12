@@ -8,7 +8,7 @@ export const SectionContainer = styled.section`
     background-attachment: fixed;
     background-position: center center;
     width: 100%;
-    min-height: 30rem;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,8 +23,8 @@ export const SectionContainer = styled.section`
       -ms-user-select: none;
     }
 
-    @media (max-width: 500px) {
-        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    @media (max-width: 768px) {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/76/356/desktop-wallpaper-ken-kaneki-phone.jpg') ;
     }
 `;
 

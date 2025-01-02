@@ -2,11 +2,12 @@ import { FaPlay } from 'react-icons/fa';
 import * as S from './style';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { UseMoviesApi } from './useMoviesApi';
+import { Loader } from '../loader';
 
 
 
 export const Recomends = () => {
-    const { moviesCurr } = UseMoviesApi();
+    const { moviesCurr , isLoading } = UseMoviesApi();
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -21,6 +22,10 @@ export const Recomends = () => {
             <h2>
                 Recomendados
             </h2>
+
+            {
+
+            isLoading === true ? <Loader/> :
 
             <S.ContainerCards>
 
@@ -46,7 +51,7 @@ export const Recomends = () => {
             })}
           
             </S.ContainerCards>
-
+}
         </S.SectionContainer>
     )
 }

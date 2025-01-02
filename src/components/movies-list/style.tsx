@@ -6,15 +6,17 @@ export const ContainerMovies = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center;
     color: #fff;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    height: 100%;
+    width: 100%;
 
-    @media (max-width: 500px) {
-        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    @media (max-width: 768px) {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/76/356/desktop-wallpaper-ken-kaneki-phone.jpg') ;
     }
 `;
 
@@ -24,7 +26,7 @@ export const SectionContainer = styled.section`
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    min-height: 40rem;
+    min-height: 50vh;
 
     h2{
         text-align: left;

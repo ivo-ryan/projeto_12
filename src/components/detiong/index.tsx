@@ -4,12 +4,13 @@ import { UseApi } from '../UseApi/useApi';
 import $ from 'jquery';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Loader } from '../loader';
 
 
 export const Detiong = ()=> {
 
   const [imgCurrent, setImgCurrent] = useState(0);
-  const { movies } = UseApi();
+  const { movies , isLoading } = UseApi();
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -54,6 +55,10 @@ export const Detiong = ()=> {
 
     return(
         <S.SectionContainer>
+
+          { 
+          
+          isLoading === true ? <Loader/> :
             <S.Container>
                 <S.ContainerImg className="container-img" >
                     {movies.map((movie, index) => (
@@ -82,6 +87,7 @@ export const Detiong = ()=> {
                 </S.ContainerIndex>
 
             </S.Container>
+          }
         </S.SectionContainer>
     )
 };

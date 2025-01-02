@@ -10,7 +10,7 @@ export const SectionContainer = styled.section`
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    background-position: center center;
+    background-position: center ;
     padding: 3rem 0 3rem 2rem ;
     color: #fff;
     user-select: none;
@@ -22,9 +22,8 @@ export const SectionContainer = styled.section`
         font-size: 2rem;
         letter-spacing: .4rem;
     }
-
-    @media (max-width: 500px) {
-        background-image: url('https://wallpapercave.com/wp/wp3534343.jpg') ;
+    @media (max-width: 768px) {
+        background-image: url('https://e1.pxfuel.com/desktop-wallpaper/76/356/desktop-wallpaper-ken-kaneki-phone.jpg') ;
     }
 
 `;

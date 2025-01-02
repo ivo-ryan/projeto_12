@@ -2,10 +2,11 @@ import { FaPlayCircle } from 'react-icons/fa';
 import * as S from './style';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { UseMoviesApi } from './useMoviesApi';
+import { Loader } from '../loader';
 
 export const IndInfo = () => {
     
-    const { movie } = UseMoviesApi();
+    const { movie, isLoading } = UseMoviesApi();
     const { name } = useParams();
     const location = useLocation();
     const navigate = useNavigate();
@@ -16,7 +17,11 @@ export const IndInfo = () => {
     
     return(
         <S.SectionContainer>
-
+        {
+            isLoading === true ? (<Loader/> ): 
+            
+           ( <>
+            
             <S.ContainerTitle>
                 <h2>{movie[0]?.name}</h2>
             </S.ContainerTitle>
@@ -49,8 +54,11 @@ export const IndInfo = () => {
                 <S.PlayContainer onClick={() => handleClickNavigate()} aria-label='play'>
                     <h2>Play</h2><FaPlayCircle/>
                 </S.PlayContainer>
-
+              
             </S.ContainerInfo>
+            </>)
+                
+            }
         </S.SectionContainer>
     )
 }
