@@ -63,7 +63,7 @@ npm test
 <br/>
 - Email: ivoryan999@gmail.com
 
-- LinkedIn: Seu Perfil
+- LinkedIn: https://www.linkedin.com/in/ryan-bastos-a0a8262a7/
 
 - GitHub: https://github.com/ivo-ryan/projeto_12
 
