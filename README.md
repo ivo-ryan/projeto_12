@@ -8,7 +8,7 @@ Este projeto é um aplicativo de filmes desenvolvido com React, que consome uma 
 
 [
    <img src="./movie-app.gif" alt="Gif do projeto "/>
-](https://streaming-interface.vercel.app)
+](https://projeto-12.vercel.app/)
 
 ## ⚡Funcionalidades
 <br/>
