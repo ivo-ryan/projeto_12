@@ -25,9 +25,9 @@ Este projeto é um aplicativo de filmes desenvolvido com React, que consome uma 
 ## 🔧Tecnologias Utilizadas
 <br/>
 
-- **Frontend:** React, React Router, react-icons
+- **Frontend:** React, TypeScript, React Router, Styled-components, React Hook Form, Zod
 
-- **Estilização:** CSS Modules
+- **Estilização:** Styled-components
 
 - **Gerenciamento de estado:** useState, useEffect
 
