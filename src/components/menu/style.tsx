@@ -30,6 +30,23 @@ export const Menu = styled.ul`
 
 `;
 
+export const ContainerImage = styled.div`
+    width: 5rem;
+    height: 5rem;
+
+    img{
+        width: 100%;
+        border-radius: 1rem;
+    }
+`;
+
+export const ContainerBack = styled.li`
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 1rem;
+`;
+
 export const ArrowContainer = styled.div`
     padding-top: 1rem ;
 
